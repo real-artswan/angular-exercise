@@ -1,0 +1,6 @@
+<div class="mb-3">
+  <label for="days-amount" class="form-label">Amount of days</label>
+  <input [ngModel]="value" (ngModelChange)="updateValue($event)" type="number" class="form-control" id="days-amount">
+  <small *ngIf="control.hasError('required')" class="text-danger">Value is required</small>
+  <small *ngIf="control.hasError('min')" class="text-danger">Minimum is 1</small>
+</div>

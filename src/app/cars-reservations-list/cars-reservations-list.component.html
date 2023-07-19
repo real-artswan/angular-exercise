@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>List of reserved cars</h1>
+  <ng-container *ngIf="reservations$ | async as reservations">
+    <div class="row">
+      <div *ngFor="let item of reservations" class="col-auto mb-1">
+        <app-car-reservation-item [reservation]="item"/>
+      </div>
+    </div>
+    <p *ngIf="!reservations.length">You have no any reservations</p>
+  </ng-container>
+  <a class="icon-link icon-link-hover" routerLink="/reservation-wizard">
+    New Reservation
+  </a>
+</div>

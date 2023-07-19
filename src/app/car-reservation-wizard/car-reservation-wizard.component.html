@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>New reservation</h1>
+  <form [formGroup]="reservationForm" (ngSubmit)="submitForm()">
+    <div *ngIf="currentStep == wizardSteps.CarSelection">
+      <h2>Step One</h2>
+      <app-car-selector *ngIf="availableCars$ | async as availableCars" formControlName="car" [carsList]="availableCars"/>
+    </div>
+    <div *ngIf="currentStep == wizardSteps.DurationSelection">
+      <h2>Step Two</h2>
+      <app-duration-selector formControlName="daysAmount"/>
+    </div>
+    <button (click)="goStepBack()" type="button" class="btn btn-secondary">Back</button>
+    <button (click)="goStepNext()" [disabled]="!reservationForm.controls.car.valid" *ngIf="!isLastStep()" type="button" class="btn btn-primary ms-1">Next</button>
+    <button [disabled]="!reservationForm.valid" *ngIf="isLastStep()" type="submit" class="btn btn-primary ms-1">Save</button>
+    <button (click)="closeWizard()" type="button" class="btn btn-danger ms-1">Cancel</button>
+  </form>
+</div>

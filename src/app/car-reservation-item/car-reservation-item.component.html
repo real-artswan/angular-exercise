@@ -1,0 +1,9 @@
+<div *ngIf="reservation" class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{reservation.car.modelName}}</h5>
+    <p class="card-text">Car reserved for 
+      <strong>{{reservation.daysAmount}}</strong>
+      days.
+    </p>
+  </div>
+</div>

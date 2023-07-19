@@ -1,0 +1,7 @@
+<div class="mb-3">
+  <label for="cars-list" class="form-label">Select a car</label>
+  <select class="form-select" [ngModel]="value" (ngModelChange)="updateValue($event)" id="cars-list">
+    <option *ngFor="let car of carsList" [ngValue]="car">{{car.modelName}}</option>
+  </select>
+  <small *ngIf="control.hasError('required')" class="text-danger">Value is required</small>
+</div>
